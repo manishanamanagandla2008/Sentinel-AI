@@ -14,6 +14,7 @@ import { AlertsView } from './components/AlertsView.tsx';
 import { ThreatMapView } from './components/ThreatMapView.tsx';
 import { InvestigationView } from './components/InvestigationView.tsx';
 import { IbmZModuleView } from './components/IbmZModuleView.tsx';
+import { LinuxOneView } from './components/LinuxOneView.tsx';
 import { AnalyticsView } from './components/AnalyticsView.tsx';
 import { InspectModal } from './components/InspectModal.tsx';
 import { AnalyzeModal } from './components/AnalyzeModal.tsx';
@@ -307,6 +308,10 @@ export default function App() {
 
           {currentTab === 'ibm-z' && (
             <IbmZModuleView />
+          )}
+
+          {currentTab === 'linux-one' && (
+            <LinuxOneView />
           )}
 
           {currentTab === 'analytics' && (

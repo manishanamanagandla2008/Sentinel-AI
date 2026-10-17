@@ -2,5 +2,7 @@
   "name": "SentinelAI",
   "description": "Intelligent Cyber Threat Detection Platform for real-time transaction monitoring, ML anomaly detection, security log analysis, and IBM Z-inspired threat intelligence.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

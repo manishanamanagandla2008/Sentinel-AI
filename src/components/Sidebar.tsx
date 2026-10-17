@@ -10,7 +10,8 @@ import {
   Cpu,
   BarChart3,
   ChevronRight,
-  ShieldAlert
+  ShieldAlert,
+  Server
 } from 'lucide-react';
 
 export type NavTab = 
@@ -22,6 +23,7 @@ export type NavTab =
   | 'threat-map'
   | 'incidents'
   | 'ibm-z'
+  | 'linux-one'
   | 'analytics';
 
 interface SidebarProps {
@@ -63,6 +65,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'threat-map', label: 'Live Threat Map', icon: Globe },
     { id: 'incidents', label: 'Incident Workspace', icon: Briefcase, section: 'RESPONSE & INTEGRATION' },
     { id: 'ibm-z', label: 'IBM Z Security Hub', icon: Cpu, badge: 'z/OS SMF', badgeColor: 'text-cyan-400 font-mono' },
+    { id: 'linux-one', label: 'IBM LinuxONE (s390x)', icon: Server, badge: 'Secure Exec', badgeColor: 'text-emerald-400 font-mono' },
     { id: 'analytics', label: 'Analytics & Reports', icon: BarChart3 }
   ];
 
@@ -107,28 +110,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </nav>
       </div>
 
-      {/* Mainframe LPAR Sysplex Monitor Card */}
+      {/* Mainframe LPAR & LinuxONE Sysplex Monitor Card */}
       <div className="pt-3 border-t border-slate-800/80">
         <div className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-[11px] font-mono">
           <div className="flex items-center justify-between text-slate-400 mb-1.5">
             <span className="flex items-center gap-1.5 text-cyan-400 font-semibold">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>IBM z16 SYSPLEX</span>
+              <Server className="w-3.5 h-3.5 text-cyan-400" />
+              <span>IBM LinuxONE s390x</span>
             </span>
             <span className="text-[10px] text-emerald-400">ONLINE</span>
           </div>
           <div className="space-y-1 text-slate-400 text-[10px]">
             <div className="flex justify-between">
-              <span>LPAR Node:</span>
-              <span className="text-slate-300">PRD1 (z/OS 3.1)</span>
+              <span>Platform Node:</span>
+              <span className="text-slate-300">RHEL 9.4 (s390x)</span>
             </div>
             <div className="flex justify-between">
-              <span>Crypto Coprocessor:</span>
-              <span className="text-emerald-400">CPACF Active</span>
+              <span>Secure Execution:</span>
+              <span className="text-emerald-400">Enclave Sealed</span>
             </div>
             <div className="flex justify-between">
-              <span>SMF Stream 80/110:</span>
-              <span className="text-cyan-300">1,420 rec/sec</span>
+              <span>IFL Cores @ 5.2GHz:</span>
+              <span className="text-cyan-300">32 Cores Active</span>
             </div>
           </div>
         </div>

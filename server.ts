@@ -459,6 +459,46 @@ async function startServer() {
     });
   });
 
+  // 14.5 IBM LinuxONE & s390x Telemetry endpoint
+  app.get('/api/linuxone/telemetry', (_req: Request, res: Response) => {
+    res.json({
+      hostname: 'sentinel-linuxone-prd01.fin-sysplex.ibm.net',
+      operatingSystem: 'Red Hat Enterprise Linux 9.4 (Plow) s390x',
+      kernel: '5.14.0-427.el9.s390x #1 SMP PREEMPT_DYNAMIC',
+      architecture: 's390x (IBM LinuxONE Emperor 4 / Machine 3931)',
+      hardwareGeneration: 'IBM z16 / LinuxONE 4',
+      iflCores: {
+        total: 32,
+        clockSpeedGhz: 5.2,
+        utilizationPct: 24.6,
+        vectorExtensions: 'SIMD 128-bit enabled'
+      },
+      memory: {
+        totalGb: 512,
+        type: 'RAIM (Redundant Array of Independent Memory)',
+        usedGb: 88,
+        secureExecutionProtected: true
+      },
+      secureExecution: {
+        status: 'ENCLAVE_SEALED',
+        attestationVerified: true,
+        hostKeyDocumentFingerprint: 'SHA256:7a9f:3b41:e890:c12a:98f1:330b',
+        hardwareRootCA: 'IBM zSystems Root CA',
+        encryptionCipher: 'AES-XTS-256 (Protected Key Mode)'
+      },
+      containersRunning: [
+        { name: 'sentinel-ml-pod', image: 'sentinel-ai-engine:s390x', port: 8000, status: 'HEALTHY' },
+        { name: 'sentinel-web-api', image: 'sentinel-smf-ingest:s390x', port: 3000, status: 'HEALTHY' },
+        { name: 'sentinel-db-enclave', image: 'registry.redhat.io/rhel9/postgresql', port: 5432, status: 'ENCLAVE_SEALED' }
+      ],
+      sustainability: {
+        energyReductionVsX86Pct: 75,
+        rackConsolidationRatio: '20:1',
+        annualCO2SavingsMetricTons: 850
+      }
+    });
+  });
+
   // 15. WebSocket Server for Gemini Live API (gemini-3.8-live) Voice Conversations
   const wss = new WebSocketServer({ server, path: '/api/live-ws' });
 
