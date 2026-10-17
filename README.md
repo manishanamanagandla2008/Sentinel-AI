@@ -9,7 +9,7 @@ SentinelAI is a full-stack, enterprise-grade cybersecurity web platform engineer
 
 ## 🌐 Live Application Website
 
-- **Shared Production Preview**: [https://ais-pre-od525if4znr5y4elymxsqd-383790507625.asia-east1.run.app](https://ais-pre-od525if4znr5y4elymxsqd-383790507625.asia-east1.run.app)
+- **Website Preview**: [https://ais-pre-od525if4znr5y4elymxsqd-383790507625.asia-east1.run.app](https://ais-pre-od525if4znr5y4elymxsqd-383790507625.asia-east1.run.app)
 
 ---
 
